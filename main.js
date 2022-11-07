@@ -5,15 +5,11 @@ const userModel = require('./models/users');
 const app = express();
 
 app.get('/users',  async (req, res) => {
-       try { 
-        const users = await userModel.findAll(req)
+    const users = await userModel.findAll(req)
 
-        if (users) {
-            return res.json(users);        
-        }   
-       } catch (e) {
-           next(e)
-       }
+    if (users) {
+        return res.json(users);
+    }
 });
 
 app.listen(3000);
